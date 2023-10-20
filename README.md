@@ -22,8 +22,10 @@ SPA desarrollada con VITE + REACT
     
 ### La SPA cuenta con 4 carpetas dentro de SRC
 
+### assets
 
-
+- logo.png (provisoriamente el logo de Gustito)
+- react.svg (sin uso)
 
 ### Components
 
