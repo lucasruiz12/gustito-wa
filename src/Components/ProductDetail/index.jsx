@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { useCartContext } from '../../context/CartContext';
 import { Modal, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 
 const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
-
-  const { addProduct } = useCartContext()
-
+  const { addProduct } = useCartContext();
   const [quantityToAdd, setQuantityToAdd] = useState(1);
-
-  const { id, name, price, img } = data
+  const { id, name, price, img } = data;
 
   const handlerQuantity = (type) => {
     switch (type) {
@@ -36,32 +35,32 @@ const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
 
     addProduct(product);
     setModal(false);
-  }
+  };
 
   return (
     <Modal show={show} onHide={() => setModal(false)}>
       <Modal.Header closeButton>
-        <Modal.Title>{currentQuantity}</Modal.Title>
+        <p className="modal-header-title">{currentQuantity}</p>
       </Modal.Header>
       <Modal.Body>
         <div>
-          <h5>{name}</h5>
-          <div>
-            <p>Cantidad: </p>
-            <Button onClick={() => handlerQuantity("-")}>
-              -
-            </Button>
-            {quantityToAdd}
-            <Button onClick={() => handlerQuantity("+")}>
-              +
+          <p className="product-name">{name}</p>
+          <div className="product-name-container">
+            <p className="product-quantity">Cantidad: </p>
+            <FontAwesomeIcon onClick={() => handlerQuantity("-")} icon={faMinus} color="#71777e" />
+            <p className="product-quantity">{quantityToAdd}</p>
+            <FontAwesomeIcon icon={faPlus} color="#71777e" onClick={() => handlerQuantity("+")} />
+          </div>
+          <div className="price-container subtotal">
+            <div>
+              <p className="total-price">
+                Total: ${price * quantityToAdd}
+              </p>
+            </div>
+            <Button className="button-custom" variant="primary" onClick={addToCart}>
+              Agregar al pedido
             </Button>
           </div>
-          <div>
-            Total: ${price * quantityToAdd}
-          </div>
-          <Button variant="primary" onClick={addToCart}>
-            Agregar al pedido
-          </Button>
         </div>
       </Modal.Body>
       {/* <Modal.Footer>

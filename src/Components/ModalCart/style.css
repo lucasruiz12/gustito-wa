@@ -1,0 +1,49 @@
+.modal-header {
+  background-color: #5a050b
+}
+
+.modal-header-title {
+  color: white !important;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.product-name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-name {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+}
+
+.product-quantity {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.subtotal {
+  padding-top: 30px
+}
+
+.total-price {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+.price,
+.subtotal-price  {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+}

@@ -1,0 +1,8 @@
+.custom-navbar {
+  background-color: #fcc141;
+  padding: 10px !important;
+}
+.cart-icon {
+  cursor: pointer;
+  font-weight: 500;
+}

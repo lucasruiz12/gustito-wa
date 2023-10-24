@@ -5,7 +5,6 @@ import ProductDetail from '../../Components/ProductDetail';
 import './style.css'
 
 const CategoryDetail = () => {
-
   const [showAdd, setShowAdd] = useState(false);
   const [dataToModal, setDataToModal] = useState({});
 
@@ -15,92 +14,77 @@ const CategoryDetail = () => {
     {
       id: 1,
       name: "Docena de carne",
-      price: 4900,
-      img: "NO"
+      price: 4900
     },
     {
       id: 2,
       name: "Docena de pollo",
-      price: 4900,
-      img: "NO"
+      price: 4900
     },
     {
       id: 3,
       name: "Docena de jamon y queso",
-      price: 4900,
-      img: "NO"
+      price: 4900
     },
     {
       id: 4,
       name: "Docena de solo queso",
-      price: 4900,
-      img: "NO"
+      price: 4900
     },
     {
       id: 5,
       name: "Docena de espinaca y queso azul",
-      price: 4900,
-      img: "NO"
+      price: 4900
     },
     {
       id: 6,
       name: "Media docena de carne",
-      price: 2600,
-      img: "NO"
+      price: 2600
     },
     {
       id: 7,
       name: "Media docena de pollo",
-      price: 2600,
-      img: "NO"
+      price: 2600
     },
     {
       id: 8,
       name: "Media docena de jamon y queso",
-      price: 2600,
-      img: "NO"
+      price: 2600
     },
     {
       id: 9,
       name: "Media docena de solo queso",
-      price: 2600,
-      img: "NO"
+      price: 2600
     },
     {
       id: 10,
       name: "Media docena de espinaca y queso azul",
-      price: 2600,
-      img: "NO"
+      price: 2600
     },
     {
       id: 11,
       name: "Empanada de carne",
-      price: 460,
-      img: "NO"
+      price: 460
     },
     {
       id: 12,
       name: "Empanada de pollo",
-      price: 460,
-      img: "NO"
+      price: 460
     },
     {
       id: 13,
       name: "Empanada de jamon y queso",
-      price: 460,
-      img: "NO"
+      price: 460
     },
     {
       id: 14,
       name: "Empanada de solo queso",
-      price: 460,
-      img: "NO"
+      price: 460
     },
     {
       id: 15,
       name: "Empanada de espinaca y queso azul",
-      price: 460,
-      img: "NO"
+      price: 460
     },
   ];
 
