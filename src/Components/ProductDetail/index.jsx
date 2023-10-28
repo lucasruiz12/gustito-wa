@@ -6,9 +6,12 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 
 const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
-  const { addProduct } = useCartContext();
+
+  const { addProduct, varieties } = useCartContext()
+
   const [quantityToAdd, setQuantityToAdd] = useState(1);
-  const { id, name, price, img } = data;
+
+  const { quantityToShop, img, type } = data
 
   const handlerQuantity = (type) => {
     switch (type) {
@@ -25,26 +28,23 @@ const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
 
   const addToCart = () => {
     let product = {
-      id,
-      name,
-      price,
       img,
-      quantity: quantityToAdd,
-      subtotal: price * quantityToAdd,
+      quantity: quantityToAdd * quantityToShop,
+      type
     }
 
     addProduct(product);
     setModal(false);
-  };
+  }
 
   return (
     <Modal show={show} onHide={() => setModal(false)}>
       <Modal.Header closeButton>
-        <p className="modal-header-title">{currentQuantity}</p>
+      <p className="modal-header-title">{currentQuantity}</p>
       </Modal.Header>
       <Modal.Body>
-        <div>
-          <p className="product-name">{name}</p>
+      <div>
+          <p className="product-name">{varieties.find(el => el.type === type).name.toUpperCase()}</p>
           <div className="product-name-container">
             <p className="product-quantity">Cantidad: </p>
             <FontAwesomeIcon onClick={() => handlerQuantity("-")} icon={faMinus} color="#71777e" />
@@ -54,7 +54,7 @@ const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
           <div className="price-container subtotal">
             <div>
               <p className="total-price">
-                Total: ${price * quantityToAdd}
+                Total a agregar: {quantityToShop * quantityToAdd} empanadas
               </p>
             </div>
             <Button className="button-custom" variant="primary" onClick={addToCart}>
@@ -63,11 +63,6 @@ const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
           </div>
         </div>
       </Modal.Body>
-      {/* <Modal.Footer>
-        <Button variant="secondary" onClick={() => setModal(false)}>
-          Cerrar
-        </Button>
-      </Modal.Footer> */}
     </Modal>
   )
 }
