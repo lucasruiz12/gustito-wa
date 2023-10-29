@@ -1,7 +1,8 @@
-.btn-primary  {
+button  {
   background-color: #fcc141 !important;
   border: 0 !important;
   border-radius: 20px !important;
-  font-family: 'Chivo', sans-serif !important;
+  font-family: 'Chivo', sans-serif;
+  color: black !important; 
   font-size: 0.8rem !important;
 }

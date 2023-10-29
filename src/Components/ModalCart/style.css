@@ -26,7 +26,8 @@
 }
 
 .product-quantity {
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -50,4 +51,22 @@
   margin: 0;
   font-family: 'Chivo', sans-serif;
   font-size: 0.8rem;
+}
+
+.price {
+  padding-bottom: 10px;
+}
+
+.quantity-content {
+ display: flex;
+ align-items: center;
+}
+
+.icon-padding {
+  padding: 0 5px;
+}
+
+.button-text {
+  font-family: 'Chivo', sans-serif;
+  color: black !important; 
 }

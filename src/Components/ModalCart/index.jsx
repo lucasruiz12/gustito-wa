@@ -54,33 +54,30 @@ const ModalCart = ({ setModal }) => {
                         </div>
                       </div>
                       <div className="product-name-container">
-                        <p className="product-quantity">Cantidad: </p>
-                        <FontAwesomeIcon onClick={() => modifyQuantity(el.type, "-")} icon={faMinus} color="#71777e" />
-                        <p className="product-quantity">{el.quantity}</p>
-                        <FontAwesomeIcon icon={faPlus} color="#71777e" onClick={() => modifyQuantity(el.type, "+")} />
-                      </div>
-                      <div className="price-container subtotal">
                         <div>
+                          <p className="product-quantity">Cantidad: </p>
+                        </div>
+                        <div className="quantity-content">
+                          <FontAwesomeIcon className="icon-padding" onClick={() => modifyQuantity(el.type, "-")} icon={faMinus} color="#71777e" />
+                          <p className="product-quantity">{el.quantity}</p>
+                          <FontAwesomeIcon className="icon-padding" icon={faPlus} color="#71777e" onClick={() => modifyQuantity(el.type, "+")} />
                         </div>
                       </div>
-                    </div>
-                    <div className="col justify-content-end">
-                      <Button onClick={() => modifyQuantity(el.type, "delete")}>X</Button>
                     </div>
                   </div>
                 )
               })
               :
-              <p>Pedido vacío (por ahora)</p>
+              <p>Carrito vacio</p>
         }
         {
           cart.length > 0 &&
-          <>
+          <div className='price-container'>
             <hr />
             <p className="subtotal-price">Total: {cart.reduce((acc, value) => acc + value.quantity, 0)} empanadas</p>
             <p className="price">Precio final: ${totalPrice}</p>
-            <Button onClick={finishShop}>Finalizar pedido</Button>
-          </>
+            <Button className="button-text" onClick={finishShop}>Finalizar pedido</Button>
+          </div>
         }
       </Modal.Body>
     </Modal>

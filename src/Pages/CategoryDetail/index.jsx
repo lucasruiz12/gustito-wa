@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom'
-import CardProduct from '../../Components/CardProduct'
+import { useParams } from 'react-router-dom';
+import { EmpanadaCarne, EmpanadaEspinacaQueso, EmpanadaJamonYQueso, EmpanadaPollo, EmpanadaQueso } from "../../assets";
+import CardProduct from '../../Components/CardProduct';
 import ProductDetail from '../../Components/ProductDetail';
+
 import './style.css'
 
 const CategoryDetail = () => {
@@ -16,105 +18,105 @@ const CategoryDetail = () => {
       id: 1,
       name: "Salteña de carne cortada a cuchillo con llajua (x12)",
       quantityToShop: 12,
-      img: "/public/empanada-carne.svg",
+      img: EmpanadaCarne,
       type: 1,
     },
     {
       id: 2,
       name: "Salteña de pollo con llajua (x12)",
       quantityToShop: 12,
-      img: "/public/empanada-pollo.svg",
+      img: EmpanadaPollo,
       type: 2,
     },
     {
       id: 3,
       name: "Jamon y queso (x12)",
       quantityToShop: 12,
-      img: "/public/empanada-jamon-queso.svg",
+      img: EmpanadaJamonYQueso,
       type: 3,
     },
     {
       id: 4,
       name: "Con mucho queso (x12)",
       quantityToShop: 12,
-      img: "/public/empanada-queso.svg",
+      img: EmpanadaQueso,
       type: 4,
     },
     {
       id: 5,
       name: "Espinaca y queso azul (x12)",
       quantityToShop: 12,
-      img: "/public/empanada-espinaca-queso.svg",
+      img: EmpanadaEspinacaQueso,
       type: 5,
     },
     {
       id: 6,
       name: "Salteña de carne cortada a cuchillo con llajua (x6)",
       quantityToShop: 6,
-      img: "/public/empanada-carne.svg",
+      img: EmpanadaCarne,
       type: 1,
     },
     {
       id: 7,
       name: "Salteña de pollo con llajua (x6)",
       quantityToShop: 6,
-      img: "/public/empanada-pollo.svg",
+      img: EmpanadaPollo,
       type: 2,
     },
     {
       id: 8,
       name: "Jamon y queso (x6)",
       quantityToShop: 6,
-      img: "/public/empanada-jamon-queso.svg",
+      img: EmpanadaJamonYQueso,
       type: 3,
     },
     {
       id: 9,
       name: "Con mucho queso (x6)",
       quantityToShop: 6,
-      img: "/public/empanada-queso.svg",
+      img: EmpanadaQueso,
       type: 4,
     },
     {
       id: 10,
       name: "Espinaca y queso azul (x6)",
       quantityToShop: 6,
-      img: "/public/empanada-espinaca-queso.svg",
+      img: EmpanadaEspinacaYQueso,
       type: 5,
     },
     {
       id: 11,
       name: "Salteña de carne cortada a cuchillo con llajua (x1)",
       quantityToShop: 1,
-      img: "/public/empanada-carne.svg",
+      img: EmpanadaCarne,
       type: 1,
     },
     {
       id: 12,
       name: "Salteña de pollo con llajua (x1)",
       quantityToShop: 1,
-      img: "/public/empanada-pollo.svg",
+      img: EmpanadaPollo,
       type: 2,
     },
     {
       id: 13,
       name: "Jamon y queso (x1)",
       quantityToShop: 1,
-      img: "/public/empanada-jamon-queso.svg",
+      img: EmpanadaJamonYQueso,
       type: 3,
     },
     {
       id: 14,
       name: "Con mucho queso (x1)",
       quantityToShop: 1,
-      img: "/public/empanada-queso.svg",
+      img: EmpanadaQueso,
       type: 4,
     },
     {
       id: 15,
       name: "Espinaca y queso azul (x1)",
       quantityToShop: 1,
-      img: "/public/empanada-espinaca-queso.svg",
+      img: EmpanadaEspinacaYQueso,
       type: 5,
     },
   ];

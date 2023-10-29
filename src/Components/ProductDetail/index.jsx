@@ -40,16 +40,20 @@ const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
   return (
     <Modal show={show} onHide={() => setModal(false)}>
       <Modal.Header closeButton>
-      <p className="modal-header-title">{currentQuantity}</p>
+        <p className="modal-header-title">{currentQuantity}</p>
       </Modal.Header>
       <Modal.Body>
-      <div>
+        <div>
           <p className="product-name">{varieties.find(el => el.type === type).name.toUpperCase()}</p>
           <div className="product-name-container">
-            <p className="product-quantity">Cantidad: </p>
-            <FontAwesomeIcon onClick={() => handlerQuantity("-")} icon={faMinus} color="#71777e" />
-            <p className="product-quantity">{quantityToAdd}</p>
-            <FontAwesomeIcon icon={faPlus} color="#71777e" onClick={() => handlerQuantity("+")} />
+            <div>
+              <p className="product-quantity">Cantidad: </p>
+            </div>
+            <div className="quantity-content">
+              <FontAwesomeIcon className="icon-padding" onClick={() => handlerQuantity("-")} icon={faMinus} color="#71777e" />
+              <p className="product-quantity">{quantityToAdd}</p>
+              <FontAwesomeIcon className="icon-padding" icon={faPlus} color="#71777e" onClick={() => handlerQuantity("+")} />
+            </div>
           </div>
           <div className="price-container subtotal">
             <div>
@@ -57,7 +61,7 @@ const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
                 Total a agregar: {quantityToShop * quantityToAdd} empanadas
               </p>
             </div>
-            <Button className="button-custom" variant="primary" onClick={addToCart}>
+            <Button className="button-text" variant="primary" onClick={addToCart}>
               Agregar al pedido
             </Button>
           </div>

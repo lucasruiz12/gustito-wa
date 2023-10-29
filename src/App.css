@@ -1,3 +1,29 @@
 p {
   margin: 0;
 }
+
+div:where(.swal2-container) div:where(.swal2-popup) {
+  display: none;
+  position: relative;
+  box-sizing: border-box;
+  grid-template-columns: minmax(0, 100%);
+  width: 32em;
+  max-width: 100%;
+  padding: 0 0 1em;
+  border-radius: 10px;
+  background: #fff;
+  color: black;
+  font-family: inherit;
+  font-size: 1rem;
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.30);
+}
+
+div:where(.swal2-container) h2:where(.swal2-title) {
+  font-size: 1em;
+  font-family: 'Chivo', sans-serif;
+  font-weight: 500;
+}
+
+div:where(.swal2-container) div:where(.swal2-actions) {
+  margin: 0.5em auto 0;
+}

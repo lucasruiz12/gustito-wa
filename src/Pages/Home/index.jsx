@@ -1,4 +1,5 @@
 import CardProduct from '../../Components/CardProduct';
+import { CardBackground1, CardBackground2, CardBackground3, CardBackground4 } from "../../assets";
 import './style.css'
 
 const Home = () => {
@@ -8,25 +9,25 @@ const Home = () => {
       id: 1,
       name: "Empanadas por docena",
       active: true,
-      img: '/public/card-background-1.png'
+      img: CardBackground1
     },
     {
       id: 2,
       name: "Empanadas por media docena",
       active: true,
-      img: '/public/card-background-2.png'
+      img: CardBackground2
     },
     {
       id: 3,
       name: "Empanadas por unidad",
       active: true,
-      img: '/public/card-background-3.png'
+      img: CardBackground3
     },
     {
       id: 4,
       name: "Postres",
       active: false,
-      img: '/public/card-background-4.png'
+      img: CardBackground4
     },
   ];
 
