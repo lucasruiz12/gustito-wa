@@ -7,6 +7,7 @@ import EmpanadaPollo from './empanada-pollo.svg';
 import EmpanadaEspinacaQueso from './empanada-espinaca-queso.svg';
 import EmpanadaQueso from './empanada-queso.svg';
 import EmpanadaJamonYQueso from './empanada-jamon-queso.svg';
+import GustitoLogo from './logo.png';
 
 export {
   CardBackground1,
@@ -17,5 +18,6 @@ export {
   EmpanadaEspinacaQueso,
   EmpanadaJamonYQueso,
   EmpanadaPollo,
-  EmpanadaQueso
+  EmpanadaQueso,
+  GustitoLogo
 }

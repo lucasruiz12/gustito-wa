@@ -5,6 +5,7 @@ import ModalCart from '../ModalCart'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { GustitoLogo } from '../../assets';
 
 function Navbar() {
   const { cart } = useCartContext();
@@ -19,7 +20,7 @@ function Navbar() {
       <nav className="navbar navbar-dark custom-navbar row d-flex justify-content-between">
         <div className="col-10">
           <Link to="/" >
-            <img src="/public/logo.png" style={{ height: "50px" }} />
+            <img src={GustitoLogo} style={{ height: "50px" }} />
           </Link>
         </div>
         <div className="cart-icon col-1 mr-3 d-flex justify-content-end" onClick={handlerCart}>
