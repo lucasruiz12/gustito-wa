@@ -81,7 +81,7 @@ const CategoryDetail = () => {
       id: 10,
       name: "Espinaca y queso azul (x6)",
       quantityToShop: 6,
-      img: EmpanadaEspinacaYQueso,
+      img: EmpanadaEspinacaQueso,
       type: 5,
     },
     {
@@ -116,7 +116,7 @@ const CategoryDetail = () => {
       id: 15,
       name: "Espinaca y queso azul (x1)",
       quantityToShop: 1,
-      img: EmpanadaEspinacaYQueso,
+      img: EmpanadaEspinacaQueso,
       type: 5,
     },
   ];
