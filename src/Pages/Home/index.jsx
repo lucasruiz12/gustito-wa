@@ -1,9 +1,9 @@
+import React from 'react';
 import CardProduct from '../../Components/CardProduct';
 import { CardBackground1, CardBackground2, CardBackground3, CardBackground4 } from "../../assets";
 import './style.css'
 
 const Home = () => {
-
   const categories = [
     {
       id: 1,
@@ -33,17 +33,13 @@ const Home = () => {
 
   return (
     <div className="container p-4 d-grid align-items-center">
-      {
-        categories.map((el, idx) => {
-          return (
-            <div key={idx}>
-              <CardProduct id={el.id} name={el.name} price={el.price} backgroundImg={el.img} active={el.active} />
-            </div>
-          )
-        })
-      }
+      {categories.map((el, idx) => (
+        <div key={idx}>
+          <CardProduct id={el.id} name={el.name} price={el.price} backgroundImg={el.img} active={el.active} />
+        </div>
+      ))}
     </div>
-  )
+  );
 };
 
 export default Home;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useCartContext } from '../../context/CartContext';
 import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,12 +6,9 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 
 const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
-
-  const { addProduct, varieties } = useCartContext()
-
+  const { addProduct, varieties } = useCartContext();
   const [quantityToAdd, setQuantityToAdd] = useState(1);
-
-  const { quantityToShop, img, type } = data
+  const { quantityToShop, img, type } = data;
 
   const handlerQuantity = (type) => {
     switch (type) {
@@ -31,11 +28,11 @@ const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
       img,
       quantity: quantityToAdd * quantityToShop,
       type
-    }
+    };
 
     addProduct(product);
     setModal(false);
-  }
+  };
 
   return (
     <Modal show={show} onHide={() => setModal(false)}>
@@ -44,8 +41,11 @@ const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
       </Modal.Header>
       <Modal.Body>
         <div>
+          <div className='container-product-name-cart'>
+          <img src={img} className="product-img-cart" />
           <p className="product-name">{varieties.find(el => el.type === type).name.toUpperCase()}</p>
-          <div className="product-name-container">
+          </div>
+          <div className="product-quantity-container">
             <div>
               <p className="product-quantity">Cantidad: </p>
             </div>
@@ -68,7 +68,7 @@ const ProductDetail = ({ show, setModal, currentQuantity, data }) => {
         </div>
       </Modal.Body>
     </Modal>
-  )
-}
+  );
+};
 
-export default ProductDetail
+export default ProductDetail;

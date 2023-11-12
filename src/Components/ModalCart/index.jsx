@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCartContext } from '../../context/CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Modal, Button } from 'react-bootstrap';
@@ -6,11 +6,13 @@ import { faTrashCan, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 
 const ModalCart = ({ setModal }) => {
-
   const { cart, checkout, varieties, updateProduct, deleteProduct, totalShop } = useCartContext();
-
   const [loading, setLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(totalShop(cart.reduce((acc, value) => acc + value.quantity, 0)));
+
+  useEffect(() => {
+    setTotalPrice(totalShop(cart.reduce((acc, value) => acc + value.quantity, 0)));
+  }, [loading]);
 
   const modifyQuantity = (id, op) => {
     setLoading(true);
@@ -29,10 +31,6 @@ const ModalCart = ({ setModal }) => {
     setModal(false);
   };
 
-  useEffect(() => {
-    setTotalPrice(totalShop(cart.reduce((acc, value) => acc + value.quantity, 0)));
-  }, [loading]);
-
   return (
     <Modal show={true} onHide={() => setModal(false)}>
       <Modal.Header className="modal-header" closeButton>
@@ -40,20 +38,21 @@ const ModalCart = ({ setModal }) => {
       </Modal.Header>
       <Modal.Body>
         {
-          loading ? <p>Cargando</p>
+          loading ? <div class="spinner-border text-primary" role="status" />
             :
             cart.length > 0 ?
               cart.map((el, idx) => {
                 return (
                   <div key={idx} className="d-flex">
                     <div className="col">
-                      <div className="product-name-container">
-                        <p className="product-name">Empanadas de {varieties.find(element => element.type === el.type).name.toUpperCase()}</p>
+                      <div className="container-product-name-cart">
+                        <img src={el.img} className="product-img-cart" />
+                        <p className="product-name">{varieties.find(element => element.type === el.type).name.toUpperCase()}</p>
                         <div className="justify-content-end">
                           <FontAwesomeIcon icon={faTrashCan} color="#71777e" onClick={() => modifyQuantity(el.type, "delete")} />
                         </div>
                       </div>
-                      <div className="product-name-container">
+                      <div className="product-quantity-container">
                         <div>
                           <p className="product-quantity">Cantidad: </p>
                         </div>
@@ -75,13 +74,13 @@ const ModalCart = ({ setModal }) => {
           <div className='price-container'>
             <hr />
             <p className="subtotal-price">Total: {cart.reduce((acc, value) => acc + value.quantity, 0)} empanadas</p>
-            <p className="price">Precio final: ${totalPrice}</p>
+            <p className="price total-price ">Precio final: ${totalPrice}</p>
             <Button className="button-text" onClick={finishShop}>Finalizar pedido</Button>
           </div>
         }
       </Modal.Body>
     </Modal>
-  )
-}
+  );
+};
 
-export default ModalCart
+export default ModalCart;

@@ -1,15 +1,10 @@
-import { Link } from 'react-router-dom'
-import './style.css'
+import React, { Link } from 'react-router-dom';
+import './style.css';
 
 const CardProduct = ({ id, name, quantityToShop, backgroundImg, img, type, setModal, setData }) => {
-
   const handlerData = () => {
     setModal && setModal(true);
-    setData({
-      quantityToShop,
-      img,
-      type,
-    });
+    setData({ quantityToShop, img, type });
   };
   return (
     <div className="card-product" style={backgroundImg && {backgroundImage: `url(${backgroundImg})`}} onClick={handlerData}>
@@ -23,7 +18,7 @@ const CardProduct = ({ id, name, quantityToShop, backgroundImg, img, type, setMo
           <p className="card-customized-title">{name}</p>
       }
     </div>
-  )
+  );
 };
 
 export default CardProduct;

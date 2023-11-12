@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useCartContext } from '../../context/CartContext';
-import ModalCart from '../ModalCart'
-import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useCartContext } from '../../context/CartContext';
+import ModalCart from '../ModalCart';
+import './style.css';
 import { GustitoLogo } from '../../assets';
 
 function Navbar() {
@@ -29,7 +29,7 @@ function Navbar() {
         </div>
       </nav>
     </>
-  )
+  );
 };
 
 export default Navbar;

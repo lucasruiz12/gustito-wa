@@ -125,19 +125,14 @@ const CategoryDetail = () => {
 
   return (
     <>
-      {
-        showAdd && <ProductDetail show={showAdd} setModal={setShowAdd} currentQuantity={currentQuantity} data={dataToModal} />
-      }
+      {showAdd && <ProductDetail show={showAdd} setModal={setShowAdd} currentQuantity={currentQuantity} data={dataToModal} />}
       <div className="container p-4 d-grid justify-content-center align-items-center">
         {
-          parseInt(id) !== 4 ?
-            products.slice((parseInt(id) - 1) * 5, parseInt(id) * 5).map((el, idx) => {
-              return (
-                <CardProduct key={idx} name={el.name} quantityToShop={el.quantityToShop} img={el.img} type={el.type} setModal={setShowAdd} setData={setDataToModal} />
-              )
-            })
-            :
-            <div>Próximamente mi rey</div>
+          parseInt(id) !== 4
+            ? products.slice((parseInt(id) - 1) * 5, parseInt(id) * 5).map((el, idx) => (
+              <CardProduct key={idx} name={el.name} quantityToShop={el.quantityToShop} img={el.img} type={el.type} setModal={setShowAdd} setData={setDataToModal} />
+            ))
+            : <div>Próximamente</div>
         }
       </div>
     </>

@@ -1,140 +1,137 @@
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, useContext, createContext } from 'react';
 import Swal from 'sweetalert2';
 
 const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext);
 
 const CartProvider = (props) => {
+	const [cart, setCart] = useState([]);
+	const varieties = [
+		{
+			type: 1,
+			name: "Carne cortada a cuchillo con llajua"
+		},
+		{
+			type: 2,
+			name: "Pollo con llajua"
+		},
+		{
+			type: 3,
+			name: "Jamon y queso"
+		},
+		{
+			type: 4,
+			name: "Con mucho queso"
+		},
+		{
+			type: 5,
+			name: "Espinaca y queso azul"
+		},
+	];
 
-    const [cart, setCart] = useState([]);
+	const addProduct = (product) => {
+		const auxCart = [...cart]
+		const indexProduct = auxCart.findIndex(el => el.type === product.type);
+		if (indexProduct < 0) {
+			auxCart.push(product);
+		} else {
+			auxCart[indexProduct].quantity += product.quantity;
+		}
+		Swal.fire(`Agregaste empanadas de ${varieties.find(el => el.type === product.type).name} (x${product.quantity}) a tu pedido`);
+		setCart(auxCart);
+	};
 
-    const varieties = [
-        {
-            type: 1,
-            name: "carne"
-        },
-        {
-            type: 2,
-            name: "pollo"
-        },
-        {
-            type: 3,
-            name: "jamon y queso"
-        },
-        {
-            type: 4,
-            name: "solo queso"
-        },
-        {
-            type: 5,
-            name: "espinaca y queso azul"
-        },
-    ]
+	const updateProduct = (id, op) => {
+		const auxCart = [...cart];
+		const indexProduct = auxCart.findIndex(el => el.type === id);
 
-    const addProduct = (product) => {
-        const auxCart = [...cart]
-        const indexProduct = auxCart.findIndex(el => el.type === product.type);
-        if (indexProduct < 0) {
-            auxCart.push(product);
-        } else {
-            auxCart[indexProduct].quantity += product.quantity;
-        }
-        Swal.fire(`Agregaste empanadas de ${varieties.find(el => el.type === product.type).name} (x${product.quantity}) a tu pedido`);
-        setCart(auxCart);
-    };
+		switch (op) {
+			case "-":
+				if (auxCart[indexProduct].quantity > 1) {
+					auxCart[indexProduct].quantity -= 1;
+				} else {
+					deleteProduct(id);
+				};
+				break;
+			case "+":
+				auxCart[indexProduct].quantity += 1;
+				break;
+			default:
+				break;
+		};
+	};
 
-    const updateProduct = (id, op) => {
-        const auxCart = [...cart];
-        const indexProduct = auxCart.findIndex(el => el.type === id);
+	const deleteProduct = (id) => {
+		Swal.fire({
+			text: "¿Sacar producto de tu pedido?",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Sí',
+			cancelButtonText: 'No'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				Swal.fire("Producto quitado correctamente.");
+				const auxCart = [...cart].filter(el => el.type !== id);
+				setCart(auxCart);
+			}
+		});
+	};
 
-        switch (op) {
-            case "-":
-                if (auxCart[indexProduct].quantity > 1) {
-                    auxCart[indexProduct].quantity -= 1;
-                } else {
-                    deleteProduct(id);
-                };
-                break;
-            case "+":
-                auxCart[indexProduct].quantity += 1;
-                break;
-            default:
-                break;
-        };
-    };
+	const checkout = () => {
+		let message = "Hola! Quisiera hacerte el siguiente pedido:\n\n";
 
-    const deleteProduct = (id) => {
-        Swal.fire({
-            text: "¿Sacar producto de tu pedido?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí',
-            cancelButtonText: 'No'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire("Producto quitado correctamente.")
-                const auxCart = [...cart].filter(el => el.type !== id);
-                setCart(auxCart)
-            }
-        })
-    }
+		cart.forEach(el => {
+			message += `- *${el.quantity}x* empanadas de ${varieties.find(element => element.type === el.type).name}` + "\n";
+		});
 
-    const checkout = () => {
-        let message = "Hola! Quisiera hacerte el siguiente pedido:\n\n";
+		let finalPrice = totalShop(cart.reduce((acc, value) => acc + value.quantity, 0))
 
-        cart.forEach(el => {
-            message += `- *${el.quantity}x* empanadas de ${varieties.find(element => element.type === el.type).name}` + "\n";
-        });
+		message += "\n\n" + `*TOTAL:* $${finalPrice}` + "\nEspero tu respuesta";
 
-        let finalPrice = totalShop(cart.reduce((acc, value) => acc + value.quantity, 0))
+		let finalMessage = message.split("\n").map(el => el.split(" ").join("%20")).join("%0A");
 
-            message += "\n\n" + `*TOTAL:* $${finalPrice}` + "\nEspero tu respuesta";
+		let url = `https://api.whatsapp.com/send?phone=5493513456658&text=${finalMessage}`;
 
-        let finalMessage = message.split("\n").map(el => el.split(" ").join("%20")).join("%0A");
+		Swal.fire({
+			title: "¿Finalizar pedido?",
+			text: "Serás redirigido a nuestro WhatsApp",
+			icon: 'info',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Sí',
+			cancelButtonText: 'No'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				Swal.fire({
+					title: "Muchas gracias por tu compra!",
+					timer: 1100
+				})
+				setTimeout(() => {
+					window.open(url, "_blank");
+					setCart([]);
+				}, 1000);
+			}
+		});
+	};
 
-        let url = `https://api.whatsapp.com/send?phone=5493513456658&text=${finalMessage}`;
+	const totalShop = (quantity) => {
+		let rest = quantity;
+		const dozen = Math.floor(rest / 12);
+		rest %= 12;
+		const halfDozen = Math.floor(rest / 6);
+		const unit = rest % 6;
 
-        Swal.fire({
-            title: "¿Finalizar pedido?",
-            text: "Serás redirigido a nuestro WhatsApp",
-            icon: 'info',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí',
-            cancelButtonText: 'No'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Muchas gracias por tu compra!",
-                    timer: 1100
-                })
-                setTimeout(() => {
-                    window.open(url, "_blank");
-                    setCart([]);
-                }, 1000);
-                ;
-            }
-        });
-    };
+		return (dozen * 4900 + halfDozen * 2600 + unit * 460);
+	};
 
-    const totalShop = (quantity) => {
-        let rest = quantity;
-        const dozen = Math.floor(rest / 12);
-        rest %= 12;
-        const halfDozen = Math.floor(rest / 6);
-        const unit = rest % 6;
-
-        return (dozen * 4900 + halfDozen * 2600 + unit * 460);
-    }
-
-    return (
-        <CartContext.Provider value={{ cart, setCart, varieties, addProduct, checkout, updateProduct, deleteProduct, totalShop }}>
-            {props.children}
-        </CartContext.Provider>
-    )
-}
+	return (
+		<CartContext.Provider value={{ cart, setCart, varieties, addProduct, checkout, updateProduct, deleteProduct, totalShop }}>
+			{props.children}
+		</CartContext.Provider>
+	);
+};
 
 export default CartProvider;

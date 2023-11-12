@@ -13,22 +13,24 @@
   margin: 0;
 }
 
-.product-name-container {
+.container-product-name-cart {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  padding-bottom: 15px;
 }
 
 .product-name {
   margin: 0;
   font-family: 'Chivo', sans-serif;
   font-size: 1.2rem;
+  padding: 6px;
 }
 
 .product-quantity {
   font-size: 1rem;
   font-weight: 700;
   margin: 0;
+  padding: 0 10px;
 }
 
 .price-container {
@@ -41,11 +43,6 @@
   padding-top: 30px
 }
 
-.total-price {
-  font-family: 'Chivo', sans-serif;
-  font-size: 1rem;
-}
-
 .price,
 .subtotal-price  {
   margin: 0;
@@ -53,8 +50,13 @@
   font-size: 0.8rem;
 }
 
+.total-price {
+  font-family: 'Chivo', sans-serif;
+  font-size: 1.3rem;
+}
+
 .price {
-  padding-bottom: 10px;
+  padding: 20px 0 10px 0;
 }
 
 .quantity-content {
@@ -69,4 +71,9 @@
 .button-text {
   font-family: 'Chivo', sans-serif;
   color: black !important; 
+}
+
+.product-quantity-container {
+  display: flex;
+  justify-content: space-between;
 }
