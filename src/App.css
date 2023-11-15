@@ -1,3 +1,4 @@
+
 p {
   margin: 0;
 }
@@ -26,4 +27,12 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 
 div:where(.swal2-container) div:where(.swal2-actions) {
   margin: 0.5em auto 0;
+}
+
+#root {
+  height: 100vh;
+  background-image: url(./assets/background.jpg);;
+  background-color: #c9511d;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
