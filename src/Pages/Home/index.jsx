@@ -32,8 +32,8 @@ const Home = () => {
   ];
 
   return (
-    <div className="cardProductContainer container align-items-center">
-      {categories.map((el, idx) => (
+    <div className="cardProductContainer">
+      {categories.map((el) => (
         <CardProduct id={el.id} name={el.name} price={el.price} backgroundImg={el.img} active={el.active} />
       ))}
     </div>
