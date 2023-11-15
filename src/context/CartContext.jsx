@@ -9,23 +9,28 @@ const CartProvider = (props) => {
 	const varieties = [
 		{
 			type: 1,
-			name: "Carne cortada a cuchillo con llajua"
+			name: "Carne cortada a cuchillo con llajua",
+			stock: true
 		},
 		{
 			type: 2,
-			name: "Pollo con llajua"
+			name: "Pollo con llajua",
+			stock: true
 		},
 		{
 			type: 3,
-			name: "Jamon y queso"
+			name: "Jamon y queso",
+			stock: true
 		},
 		{
 			type: 4,
-			name: "Con mucho queso"
+			name: "Con mucho queso",
+			stock: true
 		},
 		{
 			type: 5,
-			name: "Espinaca y queso azul"
+			name: "Espinaca y queso azul",
+			stock: false
 		},
 	];
 

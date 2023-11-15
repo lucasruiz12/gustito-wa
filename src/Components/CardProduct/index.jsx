@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 
-const CardProduct = ({ id, name, quantityToShop, backgroundImg, img, type, setModal, setData, stock, active }) => {
+const CardProduct = ({ id, name, quantityToShop, backgroundImg, img, type, setModal, setData, stock = true, active }) => {
   const handlerData = () => {
     setModal && setModal(true);
-    setData({ quantityToShop, img, type });
+    setData({ quantityToShop, img, type, stock });
   };
   return (
-    <button className={backgroundImg ? "card-product" : "card-product-without-backgroundImg"} style={backgroundImg && {backgroundImage: `url(${backgroundImg})`}} onClick={handlerData}>
+    <button className={backgroundImg ? "card-product" : "card-product-without-backgroundImg"} disabled={!stock} style={backgroundImg && {backgroundImage: `url(${backgroundImg})`}} onClick={handlerData}>
       {img && <img className="card-image" src={img} />}
       {
         !setModal ?

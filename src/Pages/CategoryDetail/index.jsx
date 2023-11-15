@@ -20,6 +20,7 @@ const CategoryDetail = () => {
       quantityToShop: 12,
       img: EmpanadaCarne,
       type: 1,
+      stock: false
     },
     {
       id: 2,
@@ -27,6 +28,7 @@ const CategoryDetail = () => {
       quantityToShop: 12,
       img: EmpanadaPollo,
       type: 2,
+      stock: true
     },
     {
       id: 3,
@@ -34,6 +36,7 @@ const CategoryDetail = () => {
       quantityToShop: 12,
       img: EmpanadaJamonYQueso,
       type: 3,
+      stock: true
     },
     {
       id: 4,
@@ -41,6 +44,7 @@ const CategoryDetail = () => {
       quantityToShop: 12,
       img: EmpanadaQueso,
       type: 4,
+      stock: true
     },
     {
       id: 5,
@@ -48,6 +52,7 @@ const CategoryDetail = () => {
       quantityToShop: 12,
       img: EmpanadaEspinacaQueso,
       type: 5,
+      stock: true
     },
     {
       id: 6,
@@ -55,6 +60,7 @@ const CategoryDetail = () => {
       quantityToShop: 6,
       img: EmpanadaCarne,
       type: 1,
+      stock: true
     },
     {
       id: 7,
@@ -62,6 +68,7 @@ const CategoryDetail = () => {
       quantityToShop: 6,
       img: EmpanadaPollo,
       type: 2,
+      stock: true
     },
     {
       id: 8,
@@ -69,6 +76,7 @@ const CategoryDetail = () => {
       quantityToShop: 6,
       img: EmpanadaJamonYQueso,
       type: 3,
+      stock: false
     },
     {
       id: 9,
@@ -76,6 +84,7 @@ const CategoryDetail = () => {
       quantityToShop: 6,
       img: EmpanadaQueso,
       type: 4,
+      stock: true
     },
     {
       id: 10,
@@ -83,6 +92,7 @@ const CategoryDetail = () => {
       quantityToShop: 6,
       img: EmpanadaEspinacaQueso,
       type: 5,
+      stock: true
     },
     {
       id: 11,
@@ -90,6 +100,7 @@ const CategoryDetail = () => {
       quantityToShop: 1,
       img: EmpanadaCarne,
       type: 1,
+      stock: true
     },
     {
       id: 12,
@@ -97,6 +108,7 @@ const CategoryDetail = () => {
       quantityToShop: 1,
       img: EmpanadaPollo,
       type: 2,
+      stock: true
     },
     {
       id: 13,
@@ -104,6 +116,7 @@ const CategoryDetail = () => {
       quantityToShop: 1,
       img: EmpanadaJamonYQueso,
       type: 3,
+      stock: true
     },
     {
       id: 14,
@@ -111,6 +124,7 @@ const CategoryDetail = () => {
       quantityToShop: 1,
       img: EmpanadaQueso,
       type: 4,
+      stock: true
     },
     {
       id: 15,
@@ -118,6 +132,7 @@ const CategoryDetail = () => {
       quantityToShop: 1,
       img: EmpanadaEspinacaQueso,
       type: 5,
+      stock: true
     },
   ];
 
