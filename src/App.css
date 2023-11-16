@@ -30,7 +30,7 @@ div:where(.swal2-container) div:where(.swal2-actions) {
 }
 
 #root {
-  height: 100vh;
+  height: 100%;
   background-image: url(./assets/background.jpg);;
   background-color: #c9511d;
   background-repeat: no-repeat;
