@@ -43,6 +43,7 @@ const ModalCart = ({ setModal }) => {
             cart.length > 0 ?
               cart.map((el, idx) => {
                 return (
+                  <>
                   <div key={idx} className="d-flex">
                     <div className="col">
                       <div className="container-product-name-cart">
@@ -64,6 +65,8 @@ const ModalCart = ({ setModal }) => {
                       </div>
                     </div>
                   </div>
+                  <hr class="solid"></hr>
+                  </>
                 )
               })
               :
@@ -72,7 +75,6 @@ const ModalCart = ({ setModal }) => {
         {
           cart.length > 0 &&
           <div className='price-container'>
-            <hr />
             <p className="subtotal-price">Total: {cart.reduce((acc, value) => acc + value.quantity, 0)} empanadas</p>
             <p className="price total-price ">Precio final: ${totalPrice}</p>
             <Button className="button-text" onClick={finishShop}>Finalizar pedido</Button>

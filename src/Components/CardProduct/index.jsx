@@ -8,7 +8,10 @@ const CardProduct = ({ id, name, quantityToShop, backgroundImg, img, type, setMo
     setData({ quantityToShop, img, type, stock });
   };
   return (
-    <button className={backgroundImg ? "card-product" : "card-product-without-backgroundImg"} disabled={!stock} style={backgroundImg && {backgroundImage: `url(${backgroundImg})`}} onClick={handlerData}>
+    <button className={backgroundImg ? "card-product" : "card-product-without-backgroundImg"} disabled={!stock} style={backgroundImg && {backgroundImage: `linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url(${backgroundImg})`}} onClick={handlerData}>
       {img && <img className="card-image" src={img} />}
       {
         !setModal ?
